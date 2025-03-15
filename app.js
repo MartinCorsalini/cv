@@ -78,7 +78,7 @@ const translations = {
             copyright: "Todos los derechos reservados"
         }
     },
-    
+
     en: {
         navLinks: {
             "sobre-mi": "About Me",
