@@ -46,6 +46,11 @@ header {
     background-color: var(--section-bg);
 }
 
+header p{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
 .profile {
     display: flex;
     flex-direction: column;
@@ -54,8 +59,8 @@ header {
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 230px;
+    height: 230px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--accent-color);
