@@ -184,10 +184,24 @@ h2 {
     padding: 15px;
     box-shadow: var(--card-shadow);
     text-align: center;
+    transition: all 0.3s ease-in-out; /* Suaviza la transición */
+}
+
+.skill-card:hover {
+    background-color: var(--hover-bg, #f0f0f0); /* Color de fondo al pasar el ratón */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+    transform: translateY(-5px); /* Mueve la card hacia arriba */
+}
+
+.skill-card img {
+    width: 80px; /* Ajusta el tamaño según sea necesario */
+    height: 80px; /* Asegura que las imágenes tengan una altura fija */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin deformarse */
+    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
 }
 
 .skill-card i {
-    font-size: 2rem;
+    font-size: 3rem; /* Asegúrate de que los íconos tengan un tamaño uniforme */
     color: var(--accent-color);
     margin-bottom: 10px;
 }
