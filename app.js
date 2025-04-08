@@ -2,157 +2,89 @@
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 const toggleTheme = document.getElementById('toggleTheme');
-const toggleLanguage = document.getElementById('toggleLanguage');
+
 const themeIcon = toggleTheme.querySelector('i');
 const contactForm = document.getElementById('contactForm');
 
-// Datos para traducción
-const translations = {
-    es: {
-        navLinks: {
-            "sobre-mi": "Sobre Mí",
-            "habilidades": "Habilidades",
-            "proyectos": "Proyectos",
-            "experiencia": "Experiencia",
-            "educacion": "Educación",
-            "contacto": "Contacto"
-        },
-        profile: {
-            title: "Desarrollador Web Full Stack"
-        },
-        sections: {
-            "sobre-mi": {
-                title: "Sobre Mí",
-                content: [
-                    "¡Hola! Soy un desarrollador web apasionado por crear soluciones digitales intuitivas y atractivas. Me especializo en tecnologías frontend y backend para desarrollar aplicaciones web que cumplan con las necesidades del cliente y brinden una excelente experiencia al usuario.",
-                    "Mi enfoque se basa en escribir código limpio, mantenible y escalable utilizando las mejores prácticas de la industria. Me encanta aprender nuevas tecnologías y mejorar constantemente mis habilidades."
-                ]
-            },
-            "habilidades": {
-                title: "Habilidades"
-            },
-            "proyectos": {
-                title: "Proyectos"
-            },
-            "experiencia": {
-                title: "Experiencia",
-                items: [
-                    {
-                        title: "Desarrollador Frontend",
-                        subtitle: "Empresa XYZ | Enero 2022 - Presente",
-                        description: "Descripción de tus responsabilidades y logros en este puesto. Incluye tecnologías utilizadas y proyectos destacados."
-                    },
-                    {
-                        title: "Desarrollador Web Junior",
-                        subtitle: "Empresa ABC | Marzo 2020 - Diciembre 2021",
-                        description: "Descripción de tus responsabilidades y logros en este puesto. Incluye tecnologías utilizadas y proyectos destacados."
-                    }
-                ]
-            },
-            "educacion": {
-                title: "Educación",
-                items: [
-                    {
-                        title: "Licenciatura en Informática",
-                        subtitle: "Universidad XYZ | 2016 - 2020",
-                        description: "Descripción breve de los conocimientos adquiridos, cursos destacados o proyectos realizados durante tu formación académica."
-                    },
-                    {
-                        title: "Bootcamp de Desarrollo Web Full Stack",
-                        subtitle: "Academia de Programación | 2020",
-                        description: "Descripción breve del programa, tecnologías aprendidas y proyectos realizados."
-                    }
-                ]
-            },
-            "contacto": {
-                title: "Contacto",
-                form: {
-                    name: "Nombre",
-                    email: "Email",
-                    message: "Mensaje",
-                    button: "Enviar Mensaje"
-                }
-            }
-        },
-        footer: {
-            copyright: "Todos los derechos reservados"
-        }
-    },
+const toggleLanguage = document.getElementById("toggleLanguage");
 
-    en: {
-        navLinks: {
-            "sobre-mi": "About Me",
-            "habilidades": "Skills",
-            "proyectos": "Projects",
-            "experiencia": "Experience",
-            "educacion": "Education",
-            "contacto": "Contact"
-        },
-        profile: {
-            title: "Full Stack Web Developer"
-        },
-        sections: {
-            "sobre-mi": {
-                title: "About Me",
-                content: [
-                    "Hello! I'm a web developer passionate about creating intuitive and attractive digital solutions. I specialize in frontend and backend technologies to develop web applications that meet client needs and provide an excellent user experience.",
-                    "My approach is based on writing clean, maintainable, and scalable code using industry best practices. I love learning new technologies and constantly improving my skills."
-                ]
-            },
-            "habilidades": {
-                title: "Skills"
-            },
-            "proyectos": {
-                title: "Projects"
-            },
-            "experiencia": {
-                title: "Experience",
-                items: [
-                    {
-                        title: "Frontend Developer",
-                        subtitle: "XYZ Company | January 2022 - Present",
-                        description: "Description of your responsibilities and achievements in this position. Include technologies used and notable projects."
-                    },
-                    {
-                        title: "Junior Web Developer",
-                        subtitle: "ABC Company | March 2020 - December 2021",
-                        description: "Description of your responsibilities and achievements in this position. Include technologies used and notable projects."
-                    }
-                ]
-            },
-            "educacion": {
-                title: "Education",
-                items: [
-                    {
-                        title: "Bachelor's Degree in Computer Science",
-                        subtitle: "XYZ University | 2016 - 2020",
-                        description: "Brief description of knowledge acquired, notable courses, or projects completed during your academic training."
-                    },
-                    {
-                        title: "Full Stack Web Development Bootcamp",
-                        subtitle: "Programming Academy | 2020",
-                        description: "Brief description of the program, technologies learned, and projects completed."
-                    }
-                ]
-            },
-            "contacto": {
-                title: "Contact",
-                form: {
-                    name: "Name",
-                    email: "Email",
-                    message: "Message",
-                    button: "Send Message"
-                }
-            }
-        },
-        footer: {
-            copyright: "All rights reserved"
-        }
-    }
+let currentLang = "es";
+
+// Traducciones
+const translations = {
+  es: {
+    nav: ["Sobre Mí", "Habilidades", "Educación", "Proyectos", "Contacto"],
+    profileTitle: "Desarrollador Full Stack",
+    aboutTitle: "Sobre Mí",
+    aboutText: [
+      "Hola! Estoy recientemente recibido (diciembre 2024) como Técnico Universitario en Programación. En este tramo de 2 años, he adquirido experiencia práctica en el desarrollo de aplicaciones front-end utilizando Angular y TypeScript, complementando mis conocimientos previos en HTML, CSS y JavaScript.",
+      "Esta formación me ha permitido afianzar mis habilidades en desarrollo de aplicaciones modernas y escalables, siguiendo buenas prácticas de desarrollo y patrones de diseño.",
+      "A lo largo de mi formación académica, también he trabajado con otras tecnologías como MySQL, y he desarrollado aplicaciones en lenguaje C y Java. Además manejo herramientas de metodologías agiles como Jira (Scrum) y gestión de tareas como Trello como también manejo de Git y GIthub."
+    ],
+    skillsTitle: "Habilidades",
+    educationTitle: "Educación",
+    projectsTitle: "Proyectos",
+    contactTitle: "Contacto",
+    footerText: "Todos los derechos reservados"
+  },
+  en: {
+    nav: ["About Me", "Skills", "Education", "Projects", "Contact"],
+    profileTitle: "Full Stack Developer",
+    aboutTitle: "About Me",
+    aboutText: [
+      "Hi! I recently graduated (December 2024) as a University Technician in Programming. Over these two years, I gained hands-on experience developing front-end applications using Angular and TypeScript, complementing my previous knowledge in HTML, CSS, and JavaScript.",
+      "This training strengthened my skills in building modern and scalable applications, following good development practices and design patterns.",
+      "Throughout my academic journey, I also worked with other technologies like MySQL and developed applications in C and Java. Additionally, I'm familiar with agile tools such as Jira (Scrum), task management with Trello, and Git/GitHub."
+    ],
+    skillsTitle: "Skills",
+    educationTitle: "Education",
+    projectsTitle: "Projects",
+    contactTitle: "Contact",
+    footerText: "All rights reserved"
+  }
 };
 
-// Estado de la aplicación
-let currentLanguage = 'es';
+// Función para traducir la página
+function translatePage(lang) {
+  const t = translations[lang];
+
+  // Navbar
+  const navItems = document.querySelectorAll(".nav-links li a");
+  navItems.forEach((item, i) => {
+    item.textContent = t.nav[i];
+  });
+
+  // Título del perfil
+  document.querySelector(".profile p").textContent = t.profileTitle;
+
+  // Sección "Sobre Mí"
+  document.querySelector("#sobre-mi h2").textContent = t.aboutTitle;
+  const aboutParagraphs = document.querySelectorAll("#sobre-mi p");
+  t.aboutText.forEach((text, i) => {
+    if (aboutParagraphs[i]) aboutParagraphs[i].textContent = text;
+  });
+
+  // Otras secciones
+  document.querySelector("#habilidades h2").textContent = t.skillsTitle;
+  document.querySelector("#educacion h2").textContent = t.educationTitle;
+  document.querySelector("#proyectos h2").textContent = t.projectsTitle;
+  document.querySelector("#contacto h2").textContent = t.contactTitle;
+
+  // Footer
+  document.querySelector("footer p").innerHTML = `&copy; 2025 Martin Ezequiel Ibañez Corsalini - ${t.footerText}`;
+}
+
+// Listener del botón de idioma
+toggleLanguage.addEventListener("click", () => {
+  currentLang = currentLang === "es" ? "en" : "es";
+  toggleLanguage.textContent = currentLang.toUpperCase() === "EN" ? "ES" : "EN";
+  translatePage(currentLang);
+});
+
+
+
+
+
 let isDarkMode = false;
 
 // Función para cambiar el tema
