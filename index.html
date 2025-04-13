@@ -12,13 +12,13 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">MiCV</div>
+            <div class="logo" data-translate="logo">MiCV</div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#sobre-mi">Sobre Mí</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#educacion">Educación</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#sobre-mi" data-translate="nav.sobreMi">Sobre Mí</a></li>
+                <li><a href="#habilidades" data-translate="nav.habilidades">Habilidades</a></li>
+                <li><a href="#educacion" data-translate="nav.educacion">Educación</a></li>
+                <li><a href="#proyectos" data-translate="nav.proyectos">Proyectos</a></li>
+                <li><a href="#contacto" data-translate="nav.contacto">Contacto</a></li>
             </ul>
             <div class="toggle-buttons">
                 <button id="toggleLanguage" class="toggle-btn">EN</button>
@@ -36,21 +36,23 @@
         <div class="profile">
             <img src="fotoPerfil.jpg" alt="Tu Foto" class="profile-img">
             <h1>Martin Ezequiel Ibañez Corsalini</h1>
-            <p>Desarrollador Full Stack</p>
+            <p data-translate="profesion">Desarrollador Full Stack</p>
         </div>
     </header>
 
     <main>
         <section id="sobre-mi">
-            <h2>Sobre Mí</h2>
-            <p>Hola! Estoy recientemente recibido (diciembre 2024) como Técnico Universitario en Programación. En este tramo de 2 años, he adquirido experiencia práctica en el desarrollo de aplicaciones front-end utilizando Angular y TypeScript, complementando mis conocimientos previos en HTML, CSS y JavaScript. </p>
-            <p>Esta formación me ha permitido afianzar mis habilidades en desarrollo de aplicaciones modernas y escalables, siguiendo buenas prácticas de desarrollo y patrones de diseño.</p>
-            <p>A lo largo de mi formación académica, también he trabajado con otras tecnologías como MySQL, y he desarrollado aplicaciones en lenguaje C y Java. Además manejo herramientas de metodologías agiles como Jira (Scrum) y gestión de tareas como Trello como también manejo de Git y GIthub.</p>
+            <h2 data-translate="titulo.sobreMi">Sobre Mí</h2>
+            <p data-translate="sobreMi.1">Hola! Estoy recientemente recibido (diciembre 2024) como Técnico Universitario en Programación. En este tramo de 2 años, he adquirido experiencia práctica en el desarrollo de aplicaciones front-end utilizando Angular y TypeScript, complementando mis conocimientos previos en HTML, CSS y JavaScript. </p>
+            <p data-translate="sobreMi.2">Esta formación me ha permitido afianzar mis habilidades en desarrollo de aplicaciones modernas y escalables, siguiendo buenas prácticas de desarrollo y patrones de diseño.</p>
+            <p data-translate="sobreMi.3">A lo largo de mi formación académica, también he trabajado con otras tecnologías como MySQL, y he desarrollado aplicaciones en lenguaje C y Java. Además manejo herramientas de metodologías agiles como Jira (Scrum) y gestión de tareas como Trello como también manejo de Git y GIthub.</p>
         </section>
 
         <section id="habilidades">
-            <h2>Habilidades</h2>
+            <h2 data-translate="titulo.habilidades">Habilidades</h2>
             <div class="skills-container">
+
+                <!-- No se traducen ya que los títulos son nombres de tecnologías -->
 
                 <div class="skill-card">
                     <img src="images/c.png" alt="">
@@ -130,44 +132,42 @@
         </section>
 
         <section id="educacion">
-            <h2>Educación</h2>
+            <h2 data-translate="titulo.educacion">Educación</h2>
             <div class="education-item">
-                <h3 class="item-title">Tecnicatura Universitaria en Programación</h3>
-                <p class="item-subtitle">Universidad Tecnológica Nacional (UTN) – Mar del Plata 2022 - 2024</p>
-                <p>Técnico Universitario en Programación – Promedio: 8.5    </p>
+                <h3 class="item-title" data-translate="educacion.1.titulo">Tecnicatura Universitaria en Programación</h3>
+                <p class="item-subtitle" data-translate="educacion.1.lugar">Universidad Tecnológica Nacional (UTN) – Mar del Plata 2022 - 2024</p>
+                <p data-translate="educacion.1.descripcion">Técnico Universitario en Programación – Promedio: 8.5</p>
             </div>
 
             <div class="education-item">
-                <h3 class="item-title">Contador Público</h3>
-                <p class="item-subtitle">Universidad Nacional de Mar del Plata (UNMDP) 2015 - 2020</p>
-                <p>Completé hasta el tercer año de la carrera de Contador Público, aprobando un total de 20 materias. Esta experiencia me proporcionó una base sólida en áreas como contabilidad, auditoría y gestión financiera. Aunque decidí orientarme hacia el desarrollo de software, los conocimientos adquiridos en esta carrera complementaron mi perfil con habilidades analíticas y organizacionales.</p>
+                <h3 class="item-title" data-translate="educacion.2.titulo">Contador Público</h3>
+                <p class="item-subtitle" data-translate="educacion.2.lugar">Universidad Nacional de Mar del Plata (UNMDP) 2015 - 2020</p>
+                <p data-translate="educacion.2.descripcion">Completé hasta el tercer año de la carrera de Contador Público, aprobando un total de 20 materias. Esta experiencia me proporcionó una base sólida en áreas como contabilidad, auditoría y gestión financiera. Aunque decidí orientarme hacia el desarrollo de software, los conocimientos adquiridos en esta carrera complementaron mi perfil con habilidades analíticas y organizacionales.</p>
             </div>
 
-            <h2>Idiomas</h2>
+            <h2 data-translate="titulo.idiomas">Idiomas</h2>
             <div class="education-item">
-                <h3 class="item-title">Inglés</h3>
-                <p class="item-subtitle">Instituto Cultural Americano</p>
-                <p>B2 (Intermedio alto, capacidad de mantener conversaciones fluidas y comprensión de textos complejos).</p>
+                <h3 class="item-title" data-translate="idiomas.ingles.titulo">Inglés</h3>
+                <p class="item-subtitle" data-translate="idiomas.ingles.lugar">Instituto Cultural Americano</p>
+                <p data-translate="idiomas.ingles.descripcion">B2 (Intermedio alto, capacidad de mantener conversaciones fluidas y comprensión de textos complejos).</p>
             </div>
 
             <div class="education-item">
-                <h3 class="item-title">Alemán</h3>
-                <p class="item-subtitle">Laboratorio de Idiomas - UNMDP </p>
-                <p class="item-subtitle">Alemán: A2 (Comunicaciones cotidianas y vocabulario básico).</p>
+                <h3 class="item-title" data-translate="idiomas.aleman.titulo">Alemán</h3>
+                <p class="item-subtitle" data-translate="idiomas.aleman.lugar">Laboratorio de Idiomas - UNMDP </p>
+                <p class="item-subtitle" data-translate="idiomas.aleman.descripcion">Alemán: A2 (Comunicaciones cotidianas y vocabulario básico).</p>
             </div>
-
-
         </section>
 
         <section id="proyectos">
-            <h2>Proyectos</h2>
+            <h2 data-translate="titulo.proyectos">Proyectos</h2>
             <div class="projects">
 
                 <div class="project-card">
                     <img src="images/iconConTexto.png" alt="Toolix" class="project-img">
                     <div class="project-info">
-                        <h3 class="project-title">Toolix</h3>
-                        <p>Toolix es una plataforma diseñada para conectar clientes con profesionales en servicios como gasistas, plomeros y electricistas. Permite a los usuarios buscar, filtrar y contactar fácilmente al profesional ideal según su ubicación y necesidades.</p>
+                        <h3 class="project-title" data-translate="proyectos.toolix.titulo">Toolix</h3>
+                        <p data-translate="proyectos.toolix.descripcion">Toolix es una plataforma diseñada para conectar clientes con profesionales en servicios como gasistas, plomeros y electricistas. Permite a los usuarios buscar, filtrar y contactar fácilmente al profesional ideal según su ubicación y necesidades.</p>
                     </div>
 
                     <div class="project-links">
@@ -180,8 +180,8 @@
                 <div class="project-card">
                     <img src="images/btc.png" alt="Tracker" class="project-img">
                     <div class="project-info">
-                        <h3 class="project-title">Portfolio Tracker (Proximamente)</h3>
-                        <p>Tracker de tu cartera de activos.</p>
+                        <h3 class="project-title" data-translate="proyectos.tracker.titulo">Portfolio Tracker (Próximamente)</h3>
+                        <p data-translate="proyectos.tracker.descripcion">Tracker de tu cartera de activos.</p>
                     </div>
 
                     <div class="project-links">
@@ -194,9 +194,8 @@
             </div>
         </section>
 
-        
         <section id="contacto">
-            <h2>Contacto</h2>
+            <h2 data-translate="titulo.contacto">Contacto</h2>
             <div class="contact-container">
               <!-- LinkedIn Card -->
               <div class="contact-card linkedin">
@@ -222,26 +221,12 @@
                 <p>MartinCorsalini</p>
               </div>
             </div>
-          </section>
-          
-          
-          
-        
-        
-        
+        </section>
         
     </main>
 
     <footer>
-        <!--
-        
-        <div class="social-links">
-            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-
-        -->
-        <p>&copy; 2025 Martin Ezequiel Ibañez Corsalini - Todos los derechos reservados</p>
+        <p data-translate="footer">&copy; 2025 Martin Ezequiel Ibañez Corsalini - Todos los derechos reservados</p>
     </footer>
 
     <script src="app.js"></script>
