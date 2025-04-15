@@ -1,6 +1,6 @@
 const translations = {
   es: {
-      "logo": "MiCV",
+      
       "nav.sobreMi": "Sobre Mí",
       "nav.habilidades": "Habilidades",
       "nav.educacion": "Educación",
@@ -35,7 +35,7 @@ const translations = {
       "footer": "© 2025 Martin Ezequiel Ibañez Corsalini - Todos los derechos reservados"
   },
   en: {
-      "logo": "MyCV",
+      
       "nav.sobreMi": "About Me",
       "nav.habilidades": "Skills",
       "nav.educacion": "Education",
@@ -103,3 +103,51 @@ function translatePage(lang) {
       }
   });
 }
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const menuIcon = document.getElementById("menuIcon");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+
+  menuIcon.classList.add("rotate");
+
+  //----
+
+  setTimeout(() => {
+      if (navLinks.classList.contains("active")) {
+          menuIcon.classList.remove("fa-bars");
+          menuIcon.classList.add("fa-times");
+      } else {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+      }
+
+      // Resetear la rotación después del cambio
+      menuIcon.classList.remove("rotate");
+  }, 150); // un poco antes del final de la transición
+});
+
+
+// Cerrar menú al hacer clic fuera
+document.addEventListener("click", (event) => {
+    const isClickInsideMenu = navLinks.contains(event.target);
+    const isClickOnToggle = menuToggle.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnToggle && navLinks.classList.contains("active")) {
+        navLinks.classList.remove("active");
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+    }
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+      const navLinks = document.getElementById("navLinks");
+      if (window.innerWidth <= 768) {
+          navLinks.classList.remove("active");
+      }
+  });
+});
+
