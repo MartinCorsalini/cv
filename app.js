@@ -1,6 +1,7 @@
 const translations = {
   es: {
-      
+      "idioma.español": "Español",
+      "idioma.ingles": "Inglés",
       "nav.sobreMi": "Sobre Mí",
       "nav.habilidades": "Habilidades",
       "nav.educacion": "Educación",
@@ -35,7 +36,8 @@ const translations = {
       "footer": "© 2025 Martin Ezequiel Ibañez Corsalini - Todos los derechos reservados"
   },
   en: {
-      
+      "idioma.español": "Spanish",
+      "idioma.ingles": "English",
       "nav.sobreMi": "About Me",
       "nav.habilidades": "Skills",
       "nav.educacion": "Education",
@@ -74,80 +76,110 @@ const translations = {
 let currentLang = localStorage.getItem("lang") || "es";
 let currentTheme = localStorage.getItem("theme") || "light";
 
-// Aplicar al iniciar
+// Aplicar tema al iniciar
 document.documentElement.setAttribute("data-theme", currentTheme);
-document.getElementById("toggleLanguage").textContent = currentLang === "es" ? "EN" : "ES";
+document.getElementById("toggleTheme").checked = currentTheme === "dark";
+
+// Aplicar idioma al iniciar
+updateLanguageUI(currentLang);
 translatePage(currentLang);
 
-// Cambiar idioma
-document.getElementById("toggleLanguage").addEventListener("click", () => {
-  currentLang = currentLang === "es" ? "en" : "es";
-  localStorage.setItem("lang", currentLang);
-  translatePage(currentLang);
-  document.getElementById("toggleLanguage").textContent = currentLang === "es" ? "EN" : "ES";
-});
-
 // Cambiar tema
-document.getElementById("toggleTheme").addEventListener("click", () => {
-  currentTheme = currentTheme === "dark" ? "light" : "dark";
+document.getElementById('toggleTheme').addEventListener('change', function () {
+  currentTheme = this.checked ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", currentTheme);
   localStorage.setItem("theme", currentTheme);
 });
 
-// Función de traducción
-function translatePage(lang) {
-  document.querySelectorAll("[data-translate]").forEach(el => {
-      const key = el.getAttribute("data-translate");
-      if (translations[lang][key]) {
-          el.textContent = translations[lang][key];
-      }
+// ELEMENTOS del dropdown
+const toggleLanguageBtn = document.getElementById("toggleLanguage");
+const langMenu = document.getElementById("langMenu");
+
+// Toggle de visibilidad del dropdown al hacer clic en el botón
+toggleLanguageBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  langMenu.classList.toggle("show");
+  toggleLanguageBtn.classList.toggle("rotated");
+});
+
+
+// Selección de idioma desde menú
+langMenu.querySelectorAll("li").forEach(item => {
+  item.addEventListener("click", () => {
+    const selectedLang = item.getAttribute("data-lang");
+    currentLang = selectedLang;
+    localStorage.setItem("lang", selectedLang);
+    updateLanguageUI(selectedLang);
+    translatePage(selectedLang);
+    langMenu.classList.remove("show"); // Cierra el menú
+  });
+});
+
+// Cerrar dropdown si haces clic fuera de él
+document.addEventListener("click", (e) => {
+  if (!langMenu.contains(e.target) && !toggleLanguageBtn.contains(e.target)) {
+    langMenu.classList.remove("show");
+    toggleLanguageBtn.classList.remove("rotated");
+
+  }
+});
+
+function updateLanguageUI(lang) {
+  const btn = document.getElementById("toggleLanguage");
+  const labelKey = lang === "es" ? "idioma.español" : "idioma.ingles";
+  btn.textContent = `${translations[lang][labelKey]} ▾`;
+
+  // También actualizá los nombres en el menú desplegable
+  document.querySelectorAll("#langMenu li").forEach(item => {
+    const key = item.getAttribute("data-translate");
+    item.textContent = translations[lang][key] || key;
   });
 }
 
+
+// Traducción de textos
+function translatePage(lang) {
+  document.querySelectorAll("[data-translate]").forEach(el => {
+    const key = el.getAttribute("data-translate");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+}
+
+// Menú responsive
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 const menuIcon = document.getElementById("menuIcon");
 
 menuToggle.addEventListener("click", () => {
   navLinks.classList.toggle("active");
-
   menuIcon.classList.add("rotate");
 
-  //----
-
   setTimeout(() => {
-      if (navLinks.classList.contains("active")) {
-          menuIcon.classList.remove("fa-bars");
-          menuIcon.classList.add("fa-times");
-      } else {
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-      }
-
-      // Resetear la rotación después del cambio
-      menuIcon.classList.remove("rotate");
-  }, 150); // un poco antes del final de la transición
+    menuIcon.classList.toggle("fa-bars", !navLinks.classList.contains("active"));
+    menuIcon.classList.toggle("fa-times", navLinks.classList.contains("active"));
+    menuIcon.classList.remove("rotate");
+  }, 150);
 });
-
 
 // Cerrar menú al hacer clic fuera
 document.addEventListener("click", (event) => {
-    const isClickInsideMenu = navLinks.contains(event.target);
-    const isClickOnToggle = menuToggle.contains(event.target);
-
-    if (!isClickInsideMenu && !isClickOnToggle && navLinks.classList.contains("active")) {
-        navLinks.classList.remove("active");
-        menuIcon.classList.remove("fa-times");
-        menuIcon.classList.add("fa-bars");
-    }
+  const isClickInside = navLinks.contains(event.target) || menuToggle.contains(event.target);
+  if (!isClickInside && navLinks.classList.contains("active")) {
+    navLinks.classList.remove("active");
+    menuIcon.classList.remove("fa-times");
+    menuIcon.classList.add("fa-bars");
+  }
 });
 
+// Cerrar menú al seleccionar link
 document.querySelectorAll(".nav-links a").forEach(link => {
   link.addEventListener("click", () => {
-      const navLinks = document.getElementById("navLinks");
-      if (window.innerWidth <= 768) {
-          navLinks.classList.remove("active");
-      }
+    if (window.innerWidth <= 768) {
+      navLinks.classList.remove("active");
+    }
   });
 });
+
 
