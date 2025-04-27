@@ -41,14 +41,14 @@
               <li data-lang="en" data-translate="idioma.ingles"></li>
             </ul>
           </div>
-        
+
           <label class="switch">
             <input type="checkbox" id="toggleTheme" />
             <span class="slider"></span>
             <span class="clouds_stars"></span>
           </label>
         </div>
-        
+
         <div class="menu-icon" id="menuToggle">
           <i class="fas fa-bars" id="menuIcon"></i>
         </div>
@@ -254,19 +254,16 @@
             </div>
 
             <div class="project-links">
-              <a
-                href="https://github.com/MartinCorsalini/tp-final-1"
-                target="_blank"
-                ><i class="fab fa-github"></i> GitHub</a
-              >
-              <a href="#" target="_blank"
-                ><i class="fas fa-external-link-alt"></i> Demo</a
-              >
+              <a href="#" class="details-link">Detalles</a>
             </div>
           </div>
 
           <div class="project-card">
-            <img src="images/portfolio tracker logo.jpeg" alt="Tracker" class="project-img" />
+            <img
+              src="images/portfolio tracker logo.jpeg"
+              alt="Tracker"
+              class="project-img"
+            />
             <div class="project-info">
               <h3
                 class="project-title"
@@ -280,18 +277,71 @@
             </div>
 
             <div class="project-links">
-              <a
-                href="https://github.com/MartinCorsalini/tp-final-1"
-                target="_blank"
-                ><i class="fab fa-github"></i> GitHub</a
-              >
-              <a href="#" target="_blank"
-                ><i class="fas fa-external-link-alt"></i> Demo</a
-              >
+              <a href="#" class="details-link">Detalles</a>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- Aquí agregamos el POPUP oculto -->
+      <div id="popup" class="popup hidden">
+        <div class="popup-content">
+          <button id="closePopup" class="close-btn">Cerrar ✖️</button>
+
+          <div class="popup-body">
+            <!-- Parte izquierda: Video o Imagen -->
+            <div class="popup-left">
+              <video src="tu_video.mp4" controls class="popup-video"></video>
+              <!-- Si prefieres imagen, solo cambia el <video> por <img> -->
+            </div>
+
+            <!-- Parte derecha: Info -->
+            <div class="popup-right">
+              <h2 class="popup-title">Toolix</h2>
+              <p class="popup-description">
+                Toolix es una plataforma diseñada para conectar clientes con
+                profesionales como gasistas, plomeros y electricistas. Podrás
+                buscar, filtrar y contactar al mejor profesional según tu
+                necesidad.
+              </p>
+
+              <div class="popup-collaborators">
+                <strong>Colaboradores:</strong>
+                <a href="https://linkedin.com/in/usuario1" target="_blank"
+                  >Victoria Prieto</a
+                >,
+                <a href="https://linkedin.com/in/usuario2" target="_blank"
+                  >Juan Sasserolli</a
+                >,
+                <a href="https://linkedin.com/in/usuario3" target="_blank"
+                  >Leandro Ver</a
+                >,
+                <a href="https://linkedin.com/in/usuario3" target="_blank"
+                  >Abril</a
+                >
+              </div>
+
+              <div class="popup-tech">
+                <button>Angular</button>
+                <button>JavaScript</button>
+                <button>HTML</button>
+                <button>CSS</button>
+              </div>
+
+              <div class="popup-github">
+                <a href="https://github.com/tuProyecto" target="_blank">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                    alt="GitHub"
+                    class="github-icon"
+                  />
+                  Ver en GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <section id="contacto">
         <h2 data-translate="titulo.contacto">Contacto</h2>

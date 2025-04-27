@@ -320,15 +320,26 @@ h2 {
 /* Enlaces al final de la card */
 .project-links {
   display: flex;
-  justify-content: space-between; /* Alinea los enlaces a los extremos */
+  justify-content: center; /* Alinea los enlaces a los extremos */
   margin-top: auto; /* Esto empuja los enlaces hacia el final de la card */
   padding: 15px;
 }
 
 .project-links a {
   text-decoration: none;
-  color: var(--accent-color);
-  font-weight: 500;
+  background-color: var(--btn-bg); /* Color de fondo */
+  color: var(--btn-text);
+  font-weight: bold;
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Suavizar transición */
+  z-index: 2;
+}
+
+/* Efecto hover */
+.project-links a:hover {
+  background-color: var(#90caf9 ); /* Color cuando pasas el mouse */
+  transform: translateY(-2px); /* Pequeño levantamiento */
 }
 
 
@@ -622,3 +633,144 @@ footer {
     width: 80%; /* Hacer el dropdown más ancho */
   }
 }
+
+/*------------------------ POP UP------------------ */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
+.popup-content {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  width: 95%; /* Más ancho todavía */
+  max-width: 1600px; /* Ahora puede ser mucho más grande */
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #f2f2f2;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Layout interno: Izquierda y Derecha */
+.popup-body {
+  display: flex;
+  gap: 40px; /* Más espacio entre video e info */
+  flex-wrap: wrap;
+}
+
+
+.popup-left, .popup-right {
+  flex: 1;
+  min-width: 300px;
+}
+.popup-video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.popup-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.popup-description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.popup-collaborators {
+  margin-bottom: 20px;
+}
+
+.popup-collaborators a {
+  text-decoration: none;
+  color: #64b5f6;
+  font-weight: 500;
+}
+
+.popup-collaborators a:hover {
+  text-decoration: underline;
+}
+
+.popup-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.popup-tech button {
+  background-color: #64b5f6;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+
+}
+
+.popup-github {
+  margin-top: auto;
+}
+
+.popup-github a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  background-color: #24292e;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.popup-github a:hover {
+  background-color: #444;
+}
+
+.github-icon {
+  width: 20px;
+  height: 20px;
+}
+

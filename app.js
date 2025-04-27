@@ -182,4 +182,26 @@ document.querySelectorAll(".nav-links a").forEach(link => {
   });
 });
 
+//--------------------------------POP UP -----------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+  const openBtn = document.querySelector('.details-link');
+  const closeBtn = document.getElementById('closePopup');
+  const popup = document.getElementById('popup');
+
+  openBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Previene el comportamiento normal del <a>
+    popup.classList.remove('hidden');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    popup.classList.add('hidden');
+  });
+
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      popup.classList.add('hidden');
+    }
+  });
+});
+
 
