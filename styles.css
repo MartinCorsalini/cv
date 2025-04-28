@@ -42,7 +42,7 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   text-align: justify;
-  font-size: 1.1rem; /* aumentado */
+  font-size: 1.1rem; /* aumentado */  
 }
 
 header {
