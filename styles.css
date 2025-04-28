@@ -33,14 +33,16 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  transition: all 0.3s ease;
+  transition: background-color 0.05s ease, color 0.05s ease, border-color 0.05s ease;
 }
+
 
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
   text-align: justify;
+  font-size: 1.1rem; /* aumentado */
 }
 
 header {
@@ -62,8 +64,8 @@ header p {
 }
 
 .profile-img {
-  width: 230px;
-  height: 230px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--accent-color);
@@ -78,7 +80,6 @@ h1 {
   width: 100%;
   background-color: var(--navbar-bg);
   box-shadow: var(--navbar-shadow);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky; /* si querés que quede fija arriba */
   top: 0;
   z-index: 1000;
@@ -104,7 +105,8 @@ h1 {
   font-size: 1.2rem;
   display: flex;
   list-style: none;
-  justify-self: center;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
 }
 
 .nav-links li {
@@ -153,6 +155,16 @@ h1 {
   z-index: 2;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+.toggle-btn-lang {
+  width: auto;
+  min-width: 80px;
+  height: 33px;
+  padding: 0 10px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
 
 .toggle-btn:hover {
   background-color: var(--btn-hover, #6fa1e9);
@@ -338,7 +350,7 @@ h2 {
 
 /* Efecto hover */
 .project-links a:hover {
-  background-color: var(#90caf9 ); /* Color cuando pasas el mouse */
+  background-color:(#90caf9 ); /* Color cuando pasas el mouse */
   transform: translateY(-2px); /* Pequeño levantamiento */
 }
 
@@ -726,6 +738,10 @@ footer {
 
 .popup-collaborators a:hover {
   text-decoration: underline;
+}
+
+.popup-collaborators strong {
+  color: #333; /* o puedes usar #000 si quieres más contraste */
 }
 
 .popup-tech {
