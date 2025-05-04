@@ -555,60 +555,58 @@ footer {
 
 /* Tablets y dispositivos móviles grandes */
 @media (max-width: 768px) {
-  /* Navegación */
   .nav-container {
-    grid-template-columns: auto auto; /* Cambiar a dos columnas */
-    grid-template-areas: 
-      "logo menu"
-      "toggle toggle"; /* Área para los botones de toggle */
-    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px;
+    position: relative;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    margin-top: 10px;
   }
   
-  .logo {
-    grid-area: logo;
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 10px 0;
   }
   
   .menu-icon {
     grid-area: menu;
     justify-self: end;
     display: block; /* Mostrar el icono del menú */
+    z-index: 1100; 
   }
   
-  .toggle-buttons {
-    grid-area: toggle;
-    justify-self: center;
-    width: 100%;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
+   /* Alineamos .toggle-buttons y .menu-icon en una misma línea */
+   .toggle-buttons,
+   .menu-icon {
+     display: flex;
+     align-items: center;
+   }
+
+   .toggle-buttons {
+    gap: 10px;
   }
   
-  .toggle-btn {
+  .toggle-btn,
+  .toggle-btn-lang {
     padding: 6px 10px;
     font-size: 0.9rem;
-  }
-  
-  /* Links de navegación */
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background-color: var(--navbar-bg);
-    padding: 20px;
-    box-shadow: var(--navbar-shadow);
-  }
-
-  .nav-links.active {
-    display: flex;
-    margin-top: 50px; /* Dar espacio para los toggle buttons */
-  }
-
-  .nav-links li {
-    margin: 10px 0;
+    flex-shrink: 1;
   }
   
   /* Grids */

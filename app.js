@@ -178,6 +178,8 @@ document.querySelectorAll(".nav-links a").forEach(link => {
   link.addEventListener("click", () => {
     if (window.innerWidth <= 768) {
       navLinks.classList.remove("active");
+      menuIcon.classList.remove("fa-times");
+      menuIcon.classList.add("fa-bars");
     }
   });
 });
