@@ -374,13 +374,18 @@ h2 {
 .contact-container {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 20px; /* Reducido el espacio entre cards para que quepan en una fila */
   margin-top: 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Esto evita que las cards se envuelvan a la siguiente línea */
+  width: 100%;
+  max-width: 1200px; /* Un ancho máximo para el contenedor para mantener el diseño bajo control */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact-card {
-  width: 300px;
+  width: 22%; /* Ahora cada card ocupa aproximadamente 1/4 del espacio disponible */
+  min-width: 200px; /* Un ancho mínimo para mantener la legibilidad */
   height: 150px;
   background-color: #222;
   border-radius: 12px;
@@ -425,6 +430,10 @@ h2 {
 .contact-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.contact-card.download {
+  background-color: #2c7a7b; /* Un color turquesa/verde azulado */
 }
 
 
@@ -644,6 +653,21 @@ footer {
   }
 }
 
+@media (max-width: 900px) {
+  .contact-container {
+    flex-wrap: wrap; /* En pantallas pequeñas, permitir que las cards se envuelvan */
+  }
+  
+  .contact-card {
+    width: 45%; /* En pantallas pequeñas, mostrar 2 cards por fila */
+  }
+}
+
+@media (max-width: 550px) {
+  .contact-card {
+    width: 90%; /* En pantallas muy pequeñas, mostrar 1 card por fila */
+  }
+}
 /*------------------------ POP UP------------------ */
 .popup {
   position: fixed;
